@@ -151,8 +151,6 @@ sample_video.mp4
 
 For the most reliable result, use a video in which the whole body is visible, only one person is walking, the camera remains still, and the joints are not hidden by furniture or other people.
 
-Clinical videos must be anonymised before use. Do not upload patient names, hospital numbers, dates of birth, faces, or other identifiable information to a public repository.
-
 ### 2.3 Open the command window in the correct folder
 
 If Anaconda Prompt is not already in the project folder, use the following command after replacing the first part with the actual location on your computer:
