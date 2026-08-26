@@ -6,7 +6,7 @@ Optimisation of Monocular 3D Pose Estimation for Gait Analysis Using Viewpoint S
 
 This repository accompanies the manuscript listed above.
 
-The work uses PoseFormerV2 for monocular (single-camera) 3D gait analysis and adds gait-informed fine-tuning, including a layer-freezing strategy and additional loss functions. The full project code is provided here, so users should download this repository directly. There is no need to download PoseFormerV2 separately.
+The work uses PoseFormerV2 for monocular (single-camera) 3D gait analysis and adds gait-informed fine-tuning, including a layer-freezing strategy and additional loss functions. The full project code is provided here, so users should download this repository directly. 
 
 No participant-level clinical data are included in this repository.
 
@@ -77,7 +77,7 @@ However, CPU processing is much slower, and the supplied `demo/vis.py` applicati
 
 ### Step 4 of 4: Download this repository and install its packages
 
-Do **not** download the original PoseFormerV2 repository separately. This repository already contains the required PoseFormerV2 code and this study's changes.
+This repository already contains the required PoseFormerV2 code and this study's changes.
 
 This step uses Git. If the message `'git' is not recognized` appears, install Git from https://git-scm.com/downloads, close and reopen Anaconda Prompt, and repeat the command.
 
