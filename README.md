@@ -206,7 +206,7 @@ demo/output/sample_video/sample_video.mp4
 
 `on2hpWall.bin` produced the best result reported in the manuscript. It combines MPJPE, bone loss, and angle loss. The other checkpoints allow the loss combinations to be compared:
 
-The original pretrained PoseFormerV2 checkpoint can be applied directly without fine-tuning. The fine-tuned checkpoints below are optional alternatives that adapt the model to the gait objective used in this study.
+The original pretrained checkpoint can be applied directly without fine-tuning. The fine-tuned checkpoints below are optional alternatives that adapt the model to the gait objective used in this study.
 
 | Checkpoint | Losses used during fine-tuning | Download |
 |---|---|---|
