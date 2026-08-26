@@ -1,0 +1,2 @@
+demo/lib/checkpoint/*.pth filter=lfs diff=lfs merge=lfs -text
+demo/lib/checkpoint/*.weights filter=lfs diff=lfs merge=lfs -text
