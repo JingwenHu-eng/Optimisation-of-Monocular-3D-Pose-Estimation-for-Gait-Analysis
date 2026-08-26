@@ -173,6 +173,8 @@ conda activate poseformerv2
 
 ### 2.4 Run the application
 
+Due to privacy protection requirements, sample_video.mp4 is a publicly available video of general human movement and is not a gait video from any participant in this study.
+
 From the root project folder, run:
 
 ```bash
@@ -270,29 +272,7 @@ In simple terms:
 - Matching reference 3D joint coordinates are saved in the 3D `.npz` file.
 - PoseFormerV2 learns to lift the 2D joint coordinates into 3D coordinates.
 
-All clinical data must be anonymised before preparation or transfer.
-
-### 4.3 Add the dataset name to `run_poseformergait.py`
-
-Open `run_poseformergait.py` in a text editor. Find this section near the beginning:
-
-```python
-if args.dataset == 'h36m':
-    from common.h36m_dataset import Human36mDataset
-    dataset = Human36mDataset(dataset_path)
-```
-
-If the new dataset is called `clinic_gait` and has already been converted to the same H3.6M format, change the first line to:
-
-```python
-if args.dataset in ('h36m', 'clinic_gait'):
-    from common.h36m_dataset import Human36mDataset
-    dataset = Human36mDataset(dataset_path)
-```
-
-Next, either use the command-line participant lists described below or update the training and test participant names so that they exactly match the keys in the `.npz` files. Never use the same participant for both training and testing, because this would make the reported performance unreliable.
-
-### 4.4 Run fine-tuning
+### 4.3 Run fine-tuning
 
 Place the starting pretrained checkpoint in `checkpoint/`. To see its exact filename on Windows, run:
 
@@ -303,16 +283,13 @@ dir checkpoint
 Then run the following command from the root project folder. Replace the participant lists and `PRETRAINED_CHECKPOINT.bin` with the real values in your data and checkpoint folder:
 
 ```bash
-python run_poseformergait.py -g 0 -d clinic_gait -k cpn_ft_h36m_dbb -str P001,P002,P003,P004 -ste P005 -frame 243 -frame-kept 27 -coeff-kept 27 -c checkpoint --resume PRETRAINED_CHECKPOINT.bin
+python run_poseformergait.py -g 0 -k cpn_ft_h36m_dbb -frame 243 -frame-kept 27 -coeff-kept 27 -c checkpoint/NAMED_PATH --resume PRETRAINED_CHECKPOINT.bin
 ```
 
 Meaning of the items that may need changing:
 
 - `-g 0` uses the first NVIDIA GPU.
-- `-d clinic_gait` must match `DATASET_NAME` in both data filenames.
 - `-k cpn_ft_h36m_dbb` must match `KEYPOINT_NAME` in the 2D filename.
-- `-str P001,P002,P003,P004` lists training participants, separated by commas and without spaces.
-- `-ste P005` lists test participants.
 - `--resume PRETRAINED_CHECKPOINT.bin` gives the exact starting checkpoint filename located in `checkpoint/`.
 
 Training checkpoints are saved in `checkpoint/`. The final result should be evaluated on held-out participants who were not used for training.
